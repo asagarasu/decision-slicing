@@ -1,0 +1,45 @@
+{"action": "move_down", "why": "heading for the pickaxe the note will name", "destination": [42, 23]}
+{"action": "move_down", "why": "still south, nothing to name yet", "destination": null}
+{"action": "move_down", "why": "naming a cell off the east edge", "destination": [64, 23]}
+{"action": "move_down", "why": "naming a cell below the south edge", "destination": [42, -1]}
+{"action": "move_down", "why": "back to walking south", "destination": null}
+{"action": "move_down", "why": "naming the cell I will be standing on", "destination": [32, 27]}
+{"action": "move_down", "why": "south", "destination": null}
+{"action": "move_down", "why": "south", "destination": null}
+{"action": "move_right", "why": "east now", "destination": null}
+{"action": "move_right", "why": "east", "destination": null}
+{"action": "move_right", "why": "east", "destination": null}
+{"action": "move_down", "why": "one south, then east to the pickaxe", "destination": null}
+{"action": "move_right", "why": "east to [42, 23]", "destination": null}
+{"action": "move_right", "why": "east to [42, 23]", "destination": null}
+{"action": "move_right", "why": "east to [42, 23]", "destination": null}
+{"action": "move_right", "why": "east to [42, 23]", "destination": null}
+{"action": "move_right", "why": "east to [42, 23]", "destination": null}
+{"action": "move_right", "why": "east to [42, 23]", "destination": null}
+{"action": "move_right", "why": "east to [42, 23]", "destination": null}
+{"action": "move_down", "why": "standing on the pickaxe cell; the rope next", "destination": [22, 39]}
+{"action": "move_up", "why": "back west and north, toward the rope at [22, 39]", "destination": null}
+{"action": "move_left", "why": "back west and north, toward the rope at [22, 39]", "destination": null}
+{"action": "move_up", "why": "back west and north, toward the rope at [22, 39]", "destination": null}
+{"action": "move_up", "why": "back west and north, toward the rope at [22, 39]", "destination": null}
+{"action": "move_up", "why": "back west and north, toward the rope at [22, 39]", "destination": null}
+{"action": "move_up", "why": "back west and north, toward the rope at [22, 39]", "destination": null}
+{"action": "move_up", "why": "back west and north, toward the rope at [22, 39]", "destination": null}
+{"action": "move_up", "why": "back west and north, toward the rope at [22, 39]", "destination": null}
+{"action": "move_up", "why": "back west and north, toward the rope at [22, 39]", "destination": null}
+{"action": "move_up", "why": "back west and north, toward the rope at [22, 39]", "destination": null}
+{"action": "move_up", "why": "back west and north, toward the rope at [22, 39]", "destination": null}
+{"action": "move_up", "why": "back west and north, toward the rope at [22, 39]", "destination": null}
+{"action": "move_left", "why": "back west and north, toward the rope at [22, 39]", "destination": null}
+{"action": "move_left", "why": "back west and north, toward the rope at [22, 39]", "destination": null}
+{"action": "move_left", "why": "back west and north, toward the rope at [22, 39]", "destination": null}
+{"action": "move_left", "why": "back west and north, toward the rope at [22, 39]", "destination": null}
+{"action": "move_left", "why": "back west and north, toward the rope at [22, 39]", "destination": null}
+{"action": "move_left", "why": "back west and north, toward the rope at [22, 39]", "destination": null}
+{"action": "move_left", "why": "back west and north, toward the rope at [22, 39]", "destination": null}
+{"action": "move_left", "why": "back west and north, toward the rope at [22, 39]", "destination": null}
+{"action": "move_left", "why": "back west and north, toward the rope at [22, 39]", "destination": null}
+{"action": "move_left", "why": "back west and north, toward the rope at [22, 39]", "destination": null}
+{"action": "move_left", "why": "back west and north, toward the rope at [22, 39]", "destination": null}
+{"action": "move_left", "why": "back west and north, toward the rope at [22, 39]", "destination": null}
+{"action": "move_up", "why": "back west and north, toward the rope at [22, 39]", "destination": null}

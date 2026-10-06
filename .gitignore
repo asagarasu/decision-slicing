@@ -1,0 +1,14 @@
+generated/*
+!generated/REBUILD.md
+__pycache__/
+*.pyc
+*.egg-info/
+build/
+dist/
+venv/
+.venv/
+.pytest_cache/
+.DS_Store
+._*
+.worktrees/
+runs/

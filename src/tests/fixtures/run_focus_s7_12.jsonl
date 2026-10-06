@@ -1,0 +1,19 @@
+{"round": "R3", "reply": "{\"need\": \"get to the cell\", \"candidates\": [[33, 31]], \"target\": [33, 31], \"why\": \"it is the way\"}"}
+{"round": "R4", "reply": "{\"action\": \"move_right\", \"intent\": \"east along the row\"}"}
+{"round": "R3", "reply": "{\"need\": \"get to the cell\", \"candidates\": [[33, 31]], \"target\": [33, 31], \"why\": \"it is the way\"}"}
+{"round": "R4", "reply": "{\"action\": \"move_right\", \"intent\": \"east along the row\"}"}
+{"round": "R4", "reply": "{\"action\": \"move_right\", \"intent\": \"east along the row\"}"}
+{"round": "R4", "reply": "{\"action\": \"move_right\", \"intent\": \"east along the row\"}"}
+{"round": "R4", "reply": "{\"action\": \"move_right\", \"intent\": \"east along the row\"}"}
+{"round": "R4", "reply": "{\"action\": \"move_right\", \"intent\": \"east along the row\"}"}
+{"round": "R4", "reply": "{\"action\": \"move_right\", \"intent\": \"east along the row\"}"}
+{"round": "R4", "reply": "{\"action\": \"move_right\", \"intent\": \"east along the row\"}"}
+{"round": "R4", "reply": "{\"action\": \"move_right\", \"intent\": \"east along the row\"}"}
+{"round": "R4", "reply": "{\"action\": \"move_right\", \"intent\": \"east along the row\"}"}
+{"round": "R1", "reply": "{\"why\": \"the note names cells I have no entry for\", \"maintain\": \"yes\", \"ops\": [{\"op\": \"add\", \"name\": \"fetch_pickaxe\", \"when\": \"the note arrived\", \"until\": \"standing on [42, 23]\", \"why\": \"my human is stuck\"}]}"}
+{"round": "R2", "reply": "{\"why\": \"it is the one my next steps are for\", \"focus\": \"e99\"}"}
+{"round": "R2", "reply": "{\"why\": \"it is the one my next steps are for\", \"focus\": \"e2\"}"}
+{"round": "R3", "reply": "{\"need\": \"re-reading the note\", \"candidates\": [], \"target\": null, \"why\": \"nothing chosen yet\"}"}
+{"round": "R4", "reply": "{\"action\": \"move_right\", \"intent\": \"east along the row\"}"}
+{"round": "R3", "reply": "{\"need\": \"get to the cell\", \"candidates\": [[42, 23]], \"target\": [42, 23], \"why\": \"it is the way\"}"}
+{"round": "R4", "reply": "{\"action\": \"move_right\", \"intent\": \"east along the row\"}"}

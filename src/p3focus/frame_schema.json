@@ -1,0 +1,168 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:p3-focus:frame",
+  "title": "P3-focus frame",
+  "description": "One frame of the world's own record of a step (A §1.2), emitted by src/p3focus/world.py. Schema \"1\" is the old line's telemetry frame (p3_crafter_body_errands_94/design/telemetry_frame_schema.json) verbatim; schema \"2\" is that document plus `standing_on` and nothing else (A §7, D4). What is deliberately absent is part of the contract: no far terrain, no object detail beyond the window, no pixels. Vocabulary (materials, items, achievements) is that of the pinned vendor, danijar/crafter@e04542a2 + PR #32, src/vendor/crafter/data.yaml; src/tests/test_frame_schema.py asserts the two agree.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "step",
+    "daylight",
+    "player",
+    "inventory",
+    "window",
+    "standing_on",
+    "achievements",
+    "deltas"
+  ],
+  "properties": {
+    "schema_version": {
+      "description": "Bumped only by a breaking change to this document. \"2\" = the old line's frame plus standing_on.",
+      "const": "2"
+    },
+    "step": {
+      "description": "env._step: 0 for the post-reset frame, +1 per world step.",
+      "type": "integer",
+      "minimum": 0
+    },
+    "daylight": {
+      "description": "env._world.daylight, 1 - |cos(pi*((step/300)%1+0.3))|^3 (env.py:135-139). 1 = noon, 0 = deep night.",
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "player": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["pos", "facing", "sleeping", "health", "food", "drink", "energy"],
+      "properties": {
+        "pos": {
+          "description": "[x, y] in WORLD coordinates: +x right, +y DOWN (A §1.1). The shown axis the model reads is y_shown = 63 - y_world and is never in a log.",
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 2,
+          "items": {"type": "integer", "minimum": 0}
+        },
+        "facing": {
+          "description": "[dx, dy] unit offset of the cell the player acts on, world axis. Left/right/up/down = [-1,0]/[+1,0]/[0,-1]/[0,+1] (objects.py:175). Raw on purpose: naming is the page layer's job.",
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 2,
+          "items": {"type": "integer", "minimum": -1, "maximum": 1}
+        },
+        "sleeping": {"type": "boolean"},
+        "health": {"$ref": "#/$defs/level"},
+        "food": {"$ref": "#/$defs/level"},
+        "drink": {"$ref": "#/$defs/level"},
+        "energy": {"$ref": "#/$defs/level"}
+      }
+    },
+    "inventory": {
+      "description": "The full inventory dict, including the four vitals duplicated under player.",
+      "type": "object",
+      "required": [
+        "health", "food", "drink", "energy", "sapling", "wood", "stone",
+        "coal", "iron", "diamond", "wood_pickaxe", "stone_pickaxe",
+        "iron_pickaxe", "wood_sword", "stone_sword", "iron_sword"
+      ],
+      "propertyNames": {"$ref": "#/$defs/item_name"},
+      "additionalProperties": {"$ref": "#/$defs/level"}
+    },
+    "window": {
+      "description": "Square, odd-sided, player-centred crop of our own SemanticView (the stock one omits Fence, env.py:47-49), ids mapped to names. Rows run north->south (+y, world axis: row 0 is the row ABOVE the body on screen), columns west->east (+x), matching the transpose in Env.render, so the centre cell is always the player. This line's window is 9x9; squareness, oddness and the centred player are asserted by the tests, not expressible here.",
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "array",
+        "minItems": 1,
+        "items": {"$ref": "#/$defs/cell"}
+      }
+    },
+    "standing_on": {
+      "description": "The material of the cell under the body, read from the material map. Schema \"2\"'s one addition (A §1.2, D4): the window draws the player OVER their own cell, so `window[4][4]` is \"player\" and the window cannot answer this at all. Under this line's rules it is the difference between the drink meter rising (water) and falling (sand).",
+      "$ref": "#/$defs/material"
+    },
+    "achievements": {
+      "description": "The full 22 achievement counters (env.py:110). Monotonically non-decreasing within an episode. Never on a page; kept because the frame is the old line's verbatim.",
+      "type": "object",
+      "required": [
+        "collect_coal", "collect_diamond", "collect_drink", "collect_iron",
+        "collect_sapling", "collect_stone", "collect_wood", "defeat_skeleton",
+        "defeat_zombie", "eat_cow", "eat_plant", "make_iron_pickaxe",
+        "make_iron_sword", "make_stone_pickaxe", "make_stone_sword",
+        "make_wood_pickaxe", "make_wood_sword", "place_furnace", "place_plant",
+        "place_stone", "place_table", "wake_up"
+      ],
+      "propertyNames": {"$ref": "#/$defs/achievement_name"},
+      "additionalProperties": {"type": "integer", "minimum": 0}
+    },
+    "deltas": {
+      "description": "Change since the previous committed frame. Sparse: only names that changed appear. Empty on the frame-0 frame. Summing them over a run reconciles exactly with the final counters.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["inventory", "achievements"],
+      "properties": {
+        "inventory": {
+          "type": "object",
+          "propertyNames": {"$ref": "#/$defs/item_name"},
+          "additionalProperties": {
+            "description": "Signed change; never 0 (a 0 entry means the emitter is not sparse).",
+            "type": "integer",
+            "not": {"const": 0}
+          }
+        },
+        "achievements": {
+          "type": "object",
+          "propertyNames": {"$ref": "#/$defs/achievement_name"},
+          "additionalProperties": {
+            "description": "Achievement counters only ever increment (objects.py).",
+            "type": "integer",
+            "minimum": 1
+          }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "level": {
+      "description": "Every inventory item is clamped to 0..max, and every max in data.yaml is 9 (objects.py:126-128).",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 9
+    },
+    "item_name": {
+      "enum": [
+        "health", "food", "drink", "energy", "sapling", "wood", "stone",
+        "coal", "iron", "diamond", "wood_pickaxe", "stone_pickaxe",
+        "iron_pickaxe", "wood_sword", "stone_sword", "iron_sword"
+      ]
+    },
+    "achievement_name": {
+      "enum": [
+        "collect_coal", "collect_diamond", "collect_drink", "collect_iron",
+        "collect_sapling", "collect_stone", "collect_wood", "defeat_skeleton",
+        "defeat_zombie", "eat_cow", "eat_plant", "make_iron_pickaxe",
+        "make_iron_sword", "make_stone_pickaxe", "make_stone_sword",
+        "make_wood_pickaxe", "make_wood_sword", "place_furnace", "place_plant",
+        "place_stone", "place_table", "wake_up"
+      ]
+    },
+    "material": {
+      "description": "The 12 materials of the pinned vendor. A cell of the material map, which is what `standing_on` reads; no object name and no pad can appear there, because the body is always inside the world and always on a material.",
+      "enum": [
+        "water", "grass", "stone", "path", "sand", "tree", "lava", "coal",
+        "iron", "diamond", "table", "furnace"
+      ]
+    },
+    "cell": {
+      "description": "12 materials, the 7 object classes of our SemanticView (Fence included), semantic id 0 (never produced by worldgen), and the pad used outside the world.",
+      "enum": [
+        "water", "grass", "stone", "path", "sand", "tree", "lava", "coal",
+        "iron", "diamond", "table", "furnace",
+        "player", "cow", "zombie", "skeleton", "arrow", "plant", "fence",
+        "none", "out_of_bounds"
+      ]
+    }
+  }
+}

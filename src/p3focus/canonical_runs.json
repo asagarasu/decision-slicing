@@ -1,0 +1,552 @@
+{
+ "27B": {
+  "flat": {
+   "12": {
+    "run": "flat_s12_20260925T171450",
+    "chains": 0,
+    "cells": 1
+   },
+   "7": {
+    "run": "flat_s7_20260925T161737",
+    "chains": 1,
+    "cells": 3
+   },
+   "10": {
+    "run": "flat_s10_20260925T163746",
+    "chains": 1,
+    "cells": 3
+   },
+   "13": {
+    "run": "flat_s13_20260925T173648",
+    "chains": 1,
+    "cells": 3
+   },
+   "11": {
+    "run": "flat_s11_20260925T165546",
+    "chains": 1,
+    "cells": 3
+   }
+  },
+  "sliced": {
+   "10": {
+    "run": "sliced_s10_20260926T054355",
+    "chains": 1,
+    "cells": 3
+   },
+   "13": {
+    "run": "sliced_s13_20260926T073247",
+    "chains": 1,
+    "cells": 3
+   },
+   "11": {
+    "run": "sliced_s11_20260926T061930",
+    "chains": 1,
+    "cells": 3
+   },
+   "12": {
+    "run": "sliced_s12_20260926T070004",
+    "chains": 1,
+    "cells": 3
+   },
+   "7": {
+    "run": "sliced_s7_20260926T050734",
+    "chains": 1,
+    "cells": 3
+   }
+  },
+  "focus": {
+   "12": {
+    "run": "focus_s12_20260926T041042",
+    "chains": 1,
+    "cells": 3
+   },
+   "7": {
+    "run": "focus_s7_20260926T022004",
+    "chains": 1,
+    "cells": 3
+   },
+   "11": {
+    "run": "focus_s11_20260926T033142",
+    "chains": 1,
+    "cells": 3
+   },
+   "13": {
+    "run": "focus_s13_20260926T043304",
+    "chains": 1,
+    "cells": 3
+   },
+   "10": {
+    "run": "focus_s10_20260926T025723",
+    "chains": 1,
+    "cells": 3
+   }
+  },
+  "chat": {
+   "7": {
+    "run": "chat_s7_20260925T175505",
+    "chains": 1,
+    "cells": 3
+   },
+   "12": {
+    "run": "chat_s12_20260925T223550",
+    "chains": 1,
+    "cells": 3
+   },
+   "11": {
+    "run": "chat_s11_20260925T210059",
+    "chains": 1,
+    "cells": 3
+   },
+   "10": {
+    "run": "chat_s10_20260925T192822",
+    "chains": 1,
+    "cells": 3
+   },
+   "13": {
+    "run": "chat_s13_20260926T001034",
+    "chains": 1,
+    "cells": 3
+   }
+  }
+ },
+ "4B": {
+  "sliced": {
+   "10": {
+    "run": "sliced_s10_20260927T093812",
+    "chains": 1,
+    "cells": 3
+   },
+   "11": {
+    "run": "sliced_s11_20260927T094340",
+    "chains": 0,
+    "cells": 1
+   },
+   "7": {
+    "run": "sliced_s7_20260927T093326",
+    "chains": 0,
+    "cells": 0
+   },
+   "13": {
+    "run": "sliced_s13_20260927T100002",
+    "chains": 0,
+    "cells": 1
+   },
+   "12": {
+    "run": "sliced_s12_20260927T095335",
+    "chains": 0,
+    "cells": 2
+   }
+  },
+  "focus": {
+   "13": {
+    "run": "focus_s13_20260924T221941",
+    "chains": 0,
+    "cells": 1
+   },
+   "11": {
+    "run": "focus_s11_20260924T215658",
+    "chains": 0,
+    "cells": 1
+   },
+   "7": {
+    "run": "focus_s7_20260924T211423",
+    "chains": 0,
+    "cells": 0
+   },
+   "12": {
+    "run": "focus_s12_20260924T220811",
+    "chains": 0,
+    "cells": 0
+   },
+   "10": {
+    "run": "focus_s10_20260924T213443",
+    "chains": 0,
+    "cells": 1
+   }
+  },
+  "flat": {
+   "12": {
+    "run": "flat_s12_20260924T220322",
+    "chains": 0,
+    "cells": 0
+   },
+   "7": {
+    "run": "flat_s7_20260924T210808",
+    "chains": 0,
+    "cells": 0
+   },
+   "13": {
+    "run": "flat_s13_20260924T221246",
+    "chains": 0,
+    "cells": 1
+   },
+   "11": {
+    "run": "flat_s11_20260924T215324",
+    "chains": 0,
+    "cells": 0
+   },
+   "10": {
+    "run": "flat_s10_20260924T212702",
+    "chains": 0,
+    "cells": 0
+   }
+  },
+  "chat": {
+   "12": {
+    "run": "chat_s12_20260927T084230",
+    "chains": 0,
+    "cells": 1
+   },
+   "7": {
+    "run": "chat_s7_20260927T080014",
+    "chains": 0,
+    "cells": 2
+   },
+   "13": {
+    "run": "chat_s13_20260927T090724",
+    "chains": 0,
+    "cells": 2
+   },
+   "10": {
+    "run": "chat_s10_20260927T080453",
+    "chains": 1,
+    "cells": 3
+   },
+   "11": {
+    "run": "chat_s11_20260927T083019",
+    "chains": 0,
+    "cells": 0
+   }
+  }
+ },
+ "9B": {
+  "focus": {
+   "7": {
+    "run": "focus_s7_20260924T170858",
+    "chains": 1,
+    "cells": 3
+   },
+   "11": {
+    "run": "focus_s11_20260924T181057",
+    "chains": 1,
+    "cells": 3
+   },
+   "13": {
+    "run": "focus_s13_20260924T202819",
+    "chains": 1,
+    "cells": 3
+   },
+   "12": {
+    "run": "focus_s12_20260924T190412",
+    "chains": 0,
+    "cells": 1
+   },
+   "10": {
+    "run": "focus_s10_20260924T173611",
+    "chains": 1,
+    "cells": 3
+   }
+  },
+  "flat": {
+   "7": {
+    "run": "flat_s7_20260924T195027",
+    "chains": 0,
+    "cells": 0
+   },
+   "12": {
+    "run": "flat_s12_20260924T200303",
+    "chains": 0,
+    "cells": 1
+   },
+   "10": {
+    "run": "flat_s10_20260924T195443",
+    "chains": 0,
+    "cells": 0
+   },
+   "11": {
+    "run": "flat_s11_20260924T195856",
+    "chains": 0,
+    "cells": 0
+   },
+   "13": {
+    "run": "flat_s13_20260924T202423",
+    "chains": 0,
+    "cells": 0
+   }
+  },
+  "sliced": {
+   "7": {
+    "run": "sliced_s7_20260924T172418",
+    "chains": 0,
+    "cells": 2
+   },
+   "10": {
+    "run": "sliced_s10_20260924T175215",
+    "chains": 1,
+    "cells": 3
+   },
+   "13": {
+    "run": "sliced_s13_20260924T204406",
+    "chains": 0,
+    "cells": 2
+   },
+   "11": {
+    "run": "sliced_s11_20260924T185148",
+    "chains": 0,
+    "cells": 0
+   },
+   "12": {
+    "run": "sliced_s12_20260924T201632",
+    "chains": 1,
+    "cells": 3
+   }
+  },
+  "chat": {
+   "7": {
+    "run": "chat_s7_20260924T171949",
+    "chains": 0,
+    "cells": 0
+   },
+   "11": {
+    "run": "chat_s11_20260924T181638",
+    "chains": 1,
+    "cells": 3
+   },
+   "12": {
+    "run": "chat_s12_20260924T191532",
+    "chains": 1,
+    "cells": 3
+   },
+   "13": {
+    "run": "chat_s13_20260924T203915",
+    "chains": 0,
+    "cells": 0
+   },
+   "10": {
+    "run": "chat_s10_20260924T174816",
+    "chains": 0,
+    "cells": 0
+   }
+  }
+ },
+ "35B-A3B": {
+  "flat": {
+   "10": {
+    "run": "flat_s10_20260926T105233",
+    "chains": 0,
+    "cells": 2
+   },
+   "13": {
+    "run": "flat_s13_20260926T124204",
+    "chains": 1,
+    "cells": 3
+   },
+   "11": {
+    "run": "flat_s11_20260926T112533",
+    "chains": 1,
+    "cells": 3
+   },
+   "12": {
+    "run": "flat_s12_20260926T120558",
+    "chains": 1,
+    "cells": 3
+   },
+   "7": {
+    "run": "flat_s7_20260926T103242",
+    "chains": 0,
+    "cells": 1
+   }
+  },
+  "focus": {
+   "11": {
+    "run": "focus_s11_20260926T233150",
+    "chains": 1,
+    "cells": 3
+   },
+   "13": {
+    "run": "focus_s13_20260927T010117",
+    "chains": 1,
+    "cells": 3
+   },
+   "7": {
+    "run": "focus_s7_20260926T215513",
+    "chains": 1,
+    "cells": 3
+   },
+   "12": {
+    "run": "focus_s12_20260927T001859",
+    "chains": 0,
+    "cells": 2
+   },
+   "10": {
+    "run": "focus_s10_20260926T225111",
+    "chains": 1,
+    "cells": 3
+   }
+  },
+  "sliced": {
+   "7": {
+    "run": "sliced_s7_20260927T014235",
+    "chains": 1,
+    "cells": 3
+   },
+   "10": {
+    "run": "sliced_s10_20260927T031857",
+    "chains": 1,
+    "cells": 3
+   },
+   "13": {
+    "run": "sliced_s13_20260927T055052",
+    "chains": 1,
+    "cells": 3
+   },
+   "11": {
+    "run": "sliced_s11_20260927T040512",
+    "chains": 1,
+    "cells": 3
+   },
+   "12": {
+    "run": "sliced_s12_20260927T045729",
+    "chains": 1,
+    "cells": 3
+   }
+  },
+  "chat": {
+   "7": {
+    "run": "chat_s7_20260926T131713",
+    "chains": 1,
+    "cells": 3
+   },
+   "12": {
+    "run": "chat_s12_20260928T055448",
+    "chains": 1,
+    "cells": 3
+   },
+   "10": {
+    "run": "chat_s10_20260927T113221",
+    "chains": 1,
+    "cells": 3
+   },
+   "13": {
+    "run": "chat_s13_20260928T143945",
+    "chains": 1,
+    "cells": 3
+   },
+   "11": {
+    "run": "chat_s11_20260927T205233",
+    "chains": 0,
+    "cells": 1
+   }
+  }
+ },
+ "2B": {
+  "sliced": {
+   "7": {
+    "run": "sliced_s7_20260927T074538",
+    "chains": 0,
+    "cells": 0
+   },
+   "11": {
+    "run": "sliced_s11_20260927T074945",
+    "chains": 0,
+    "cells": 0
+   },
+   "12": {
+    "run": "sliced_s12_20260927T075052",
+    "chains": 0,
+    "cells": 0
+   },
+   "10": {
+    "run": "sliced_s10_20260927T074827",
+    "chains": 0,
+    "cells": 0
+   },
+   "13": {
+    "run": "sliced_s13_20260927T075239",
+    "chains": 0,
+    "cells": 0
+   }
+  },
+  "flat": {
+   "10": {
+    "run": "flat_s10_20260925T150925",
+    "chains": 0,
+    "cells": 0
+   },
+   "12": {
+    "run": "flat_s12_20260925T151134",
+    "chains": 0,
+    "cells": 0
+   },
+   "11": {
+    "run": "flat_s11_20260925T151030",
+    "chains": 0,
+    "cells": 0
+   },
+   "7": {
+    "run": "flat_s7_20260925T145417",
+    "chains": 0,
+    "cells": 0
+   },
+   "13": {
+    "run": "flat_s13_20260925T151329",
+    "chains": 0,
+    "cells": 0
+   }
+  },
+  "focus": {
+   "12": {
+    "run": "focus_s12_20260925T150639",
+    "chains": 0,
+    "cells": 0
+   },
+   "13": {
+    "run": "focus_s13_20260925T150749",
+    "chains": 0,
+    "cells": 0
+   },
+   "10": {
+    "run": "focus_s10_20260925T150332",
+    "chains": 0,
+    "cells": 0
+   },
+   "7": {
+    "run": "focus_s7_20260925T150155",
+    "chains": 0,
+    "cells": 0
+   },
+   "11": {
+    "run": "focus_s11_20260925T150520",
+    "chains": 0,
+    "cells": 0
+   }
+  },
+  "chat": {
+   "11": {
+    "run": "chat_s11_20260927T071723",
+    "chains": 0,
+    "cells": 0
+   },
+   "13": {
+    "run": "chat_s13_20260927T073056",
+    "chains": 0,
+    "cells": 1
+   },
+   "12": {
+    "run": "chat_s12_20260927T072928",
+    "chains": 0,
+    "cells": 0
+   },
+   "7": {
+    "run": "chat_s7_20260927T065504",
+    "chains": 0,
+    "cells": 0
+   },
+   "10": {
+    "run": "chat_s10_20260927T070358",
+    "chains": 0,
+    "cells": 0
+   }
+  }
+ }
+}

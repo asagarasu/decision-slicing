@@ -1,0 +1,52 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "p3focus"
+version = "0.1.0"
+description = "A crafter gridworld body running errands under four cognitive-control arms."
+requires-python = ">=3.12,<3.13"
+
+license = "MIT"
+
+# Pinned to the exact versions the experiment was measured against
+# (see generated/REBUILD.md). numpy and jsonschema are the harness's own; the
+# remaining four are crafter's, which the vendored substrate needs to import.
+dependencies = [
+    "numpy==2.5.3",
+    "jsonschema==4.26.0",
+    "imageio==2.37.4",
+    "pillow==12.3.0",
+    "opensimplex==0.4.5.1",
+    "ruamel.yaml==0.19.1",
+]
+
+[project.optional-dependencies]
+test = [
+    "pytest==9.1.1",
+    "pytest-xdist==3.8.0",
+]
+# Only src/p3focus/figures.py needs this; the harness, the reader and the tests
+# do not. Pinned to the version the figures were rendered under
+# (see generated/REBUILD.md). numpy is already a core dependency above.
+figures = [
+    "matplotlib==3.11.2",
+]
+
+# src layout: the import package p3focus lives at src/p3focus. src/vendor is
+# deliberately NOT a package here — world.py puts src/vendor on sys.path at
+# import time so the vendored crafter is used in place rather than pip-installed
+# (see generated/REBUILD.md and src/p3focus/world.py).
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["p3focus*"]
+
+[tool.setuptools.package-data]
+p3focus = ["frame_schema.json", "canonical_runs.json"]
+
+[tool.pytest.ini_options]
+testpaths = ["src/tests"]
