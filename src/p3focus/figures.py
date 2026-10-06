@@ -304,11 +304,14 @@ def per_call_cost(cell_dir, buckets=STEP_BUCKETS):
     out = {}
     for bucket, a in acc.items():
         if a["n_calls"]:
+            n_steps = len(a["steps"])
             out[bucket] = {
                 "prompt_per_call": a["prompt"] / a["n_calls"],
                 "sec_per_call": a["seconds"] / a["n_calls"],
+                "prompt_per_step": a["prompt"] / n_steps,
+                "sec_per_step": a["seconds"] / n_steps,
                 "n_calls": a["n_calls"],
-                "n_steps": len(a["steps"]),
+                "n_steps": n_steps,
             }
     return out
 
@@ -493,10 +496,10 @@ def _cost_sidebar(ax, x0, x1, y0, y1, chat_cost, sliced_cost):
     and late, a trace arm early and late -- showing the per-call prompt size
     staying flat for the trace arm while the conversation's climbs. Labelled in k
     tokens; a free-standing annotation, not aligned to the size rows."""
-    chat_early = chat_cost[STEP_BUCKETS[0]]["prompt_per_call"]
-    chat_late = chat_cost[STEP_BUCKETS[-1]]["prompt_per_call"]
-    tr_early = sliced_cost[STEP_BUCKETS[0]]["prompt_per_call"]
-    tr_late = sliced_cost[STEP_BUCKETS[-1]]["prompt_per_call"]
+    chat_early = chat_cost[STEP_BUCKETS[0]]["prompt_per_step"]
+    chat_late = chat_cost[STEP_BUCKETS[-1]]["prompt_per_step"]
+    tr_early = sliced_cost[STEP_BUCKETS[0]]["prompt_per_step"]
+    tr_late = sliced_cost[STEP_BUCKETS[-1]]["prompt_per_step"]
     vmax = max(chat_early, chat_late) * 1.06
     bar_w = (x1 - x0) / 7.0
 
@@ -645,10 +648,10 @@ def figure_t2_cost(chat_cost, focus_cost, out_path):
     """T2_cost: seconds per step and prompt tokens per step against task length,
     one 9B run per arm (chat vs focus)."""
     labels = [f"{lo}–{hi}" for lo, hi in STEP_BUCKETS]
-    chat_sec = [chat_cost[b]["sec_per_call"] for b in STEP_BUCKETS]
-    focus_sec = [focus_cost[b]["sec_per_call"] for b in STEP_BUCKETS]
-    chat_tok = [chat_cost[b]["prompt_per_call"] for b in STEP_BUCKETS]
-    focus_tok = [focus_cost[b]["prompt_per_call"] for b in STEP_BUCKETS]
+    chat_sec = [chat_cost[b]["sec_per_step"] for b in STEP_BUCKETS]
+    focus_sec = [focus_cost[b]["sec_per_step"] for b in STEP_BUCKETS]
+    chat_tok = [chat_cost[b]["prompt_per_step"] for b in STEP_BUCKETS]
+    focus_tok = [focus_cost[b]["prompt_per_step"] for b in STEP_BUCKETS]
 
     fig, (ax_l, ax_r) = plt.subplots(1, 2, figsize=(11.6, 6.0))
     fig.subplots_adjust(left=0.095, right=0.975, top=0.80, bottom=0.17, wspace=0.30)
@@ -667,8 +670,8 @@ def figure_t2_cost(chat_cost, focus_cost, out_path):
     fig.text(0.188, 0.935, "focus", color=INK, fontsize=14, va="center")
     fig.text(0.085, 0.085,
              "One 9B run per arm (n = 1 each): the per-step shape, not a mean over seeds.\n"
-             "A trace arm issues several pages per step, so its value is per decision "
-             "page (= per step for chat).",
+             "Per step, all calls summed: a trace arm issues 1.2–1.7 decision pages a step; "
+             "chat issues one.",
              color=MUTED, fontsize=11, va="top", linespacing=1.4)
     return _save(fig, out_path)
 
