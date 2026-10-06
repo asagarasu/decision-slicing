@@ -346,10 +346,21 @@ def _blank_ax(fig):
     return ax
 
 
-def _save(fig, out_path):
+def _crop(ax, y0, y1):
+    """Confine a blank full-figure axes to the band y0..y1 of the figure, keeping
+    the data-to-inch scale, so a tight save crops the empty margins without
+    moving anything drawn."""
+    ax.set_position([0, y0, 1, y1 - y0])
+    ax.set_ylim(y0, y1)
+
+
+def _save(fig, out_path, tight=False):
     out_path = Path(out_path)
     out_path.parent.mkdir(parents=True, exist_ok=True)
-    fig.savefig(out_path, dpi=150, facecolor=BG)
+    if tight:
+        fig.savefig(out_path, dpi=150, facecolor=BG, bbox_inches="tight", pad_inches=0.2)
+    else:
+        fig.savefig(out_path, dpi=150, facecolor=BG)
     plt.close(fig)
     return out_path
 
@@ -417,8 +428,8 @@ def figure_a_grid(grid, out_path):
                 ha="left", va="center", fontsize=18, color=INK,
                 fontweight="bold" if emph else "normal")
 
-    # legend: the cells ramp, then the completed-box key
-    ly = 0.115
+    # legend: the cells ramp, then the completed-box key, just under the grid
+    ly = 0.255
     ax.text(0.020, ly, "errand cells reached", ha="left", va="center",
             fontsize=13.5, color=INK2)
     sw_x, sw = 0.205, 0.040
@@ -444,7 +455,8 @@ def figure_a_grid(grid, out_path):
     ax.text(kx + kw + 0.018, ly - 0.018,
             "Every 3 in this panel is a completed chain; nothing below 3 is.",
             ha="left", va="center", fontsize=12.5, color=INK2)
-    return _save(fig, out_path)
+    _crop(ax, 0.175, 0.965)
+    return _save(fig, out_path, tight=True)
 
 
 # -- figure T1: the ladder -----------------------------------------------------
@@ -489,7 +501,7 @@ def _cost_sidebar(ax, x0, x1, y0, y1, chat_cost, sliced_cost):
     bar_w = (x1 - x0) / 7.0
 
     def bar(slot, value, label, sublabel):
-        bx = x0 + (0.6 + slot * 1.5) * bar_w
+        bx = x0 + (0.75 + slot * 1.5) * bar_w
         bh = (y1 - y0) * (value / vmax)
         ax.add_patch(Rectangle((bx, y0), bar_w, bh, facecolor=COST_BAR,
                                edgecolor="none", zorder=2))
@@ -518,8 +530,8 @@ def figure_t1_ladder(grid, chat_cost, sliced_cost, out_path):
     # geometry: chat column (left), cost strip (middle), trace columns (right)
     col_w = 0.118
     chat_x = 0.250
-    cost_x0, cost_x1 = chat_x + col_w + 0.020, chat_x + col_w + 0.175
-    right_x0 = cost_x1 + 0.035
+    cost_x0, cost_x1 = chat_x + col_w + 0.028, chat_x + col_w + 0.183
+    right_x0 = cost_x1 + 0.028
     row_h = 0.106
     y_top = 0.640                     # top (2B) row's BOTTOM edge
     title_y, sub_y, model_y = 0.880, 0.800, 0.792   # header band, above the cells
@@ -586,7 +598,8 @@ def figure_t1_ladder(grid, chat_cost, sliced_cost, out_path):
     ax.text(0.020, 0.022,
             "Qwen3.5, bf16, deterministic (temperature 0, sampling seed 42).",
             ha="left", va="center", fontsize=12, color=MUTED)
-    return _save(fig, out_path)
+    _crop(ax, 0.0, 0.935)
+    return _save(fig, out_path, tight=True)
 
 
 # -- figure T2: cost vs task length --------------------------------------------
@@ -637,13 +650,15 @@ def figure_t2_cost(chat_cost, focus_cost, out_path):
     chat_tok = [chat_cost[b]["prompt_per_call"] for b in STEP_BUCKETS]
     focus_tok = [focus_cost[b]["prompt_per_call"] for b in STEP_BUCKETS]
 
-    fig, (ax_l, ax_r) = plt.subplots(1, 2, figsize=(13.3, 5.7))
-    fig.subplots_adjust(left=0.085, right=0.975, top=0.80, bottom=0.17, wspace=0.28)
+    fig, (ax_l, ax_r) = plt.subplots(1, 2, figsize=(11.6, 6.0))
+    fig.subplots_adjust(left=0.095, right=0.975, top=0.80, bottom=0.17, wspace=0.30)
 
     _barh_panel(ax_l, "seconds per step", chat_sec, focus_sec, labels,
                 fmt=lambda v: f"{v:.2f}", xmax=max(chat_sec) * 1.22)
     _barh_panel(ax_r, "prompt tokens per step", chat_tok, focus_tok, labels,
-                fmt=lambda v: f"{v:,.0f}", xmax=100_000, budget=90_000)
+                fmt=lambda v: f"{v:,.0f}", xmax=114_000, budget=90_000)
+    ax_r.set_xticks([0, 25_000, 50_000, 75_000, 100_000])
+    ax_r.set_xticklabels(["0", "25k", "50k", "75k", "100k"])
 
     # one legend for both panels (two series -> a legend is required)
     fig.text(0.085, 0.935, "■", color=CHAT_COLOR, fontsize=15, va="center")
